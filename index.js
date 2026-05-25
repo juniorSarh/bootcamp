@@ -1,58 +1,273 @@
-// const seconeP = document.createElement('p')
-// const paraOne = document.getElementById('demo')
-// const btn = document.createElement('button')
-// const headingTwo = document.getElementById('second')
+// // Primitive Data Types
+// // 1. string 
+// let name = 'codetribe'
+// const course = 'javascript'
 
-// headingTwo.innerText = 'understanding DOM'
-// //document.body.appendChild(headingTwo)
+// //name = 'mlab'
 
+// //course = 'typescript'
 
-// paraOne.innerText = "Boom You manupulated the html file"
-// seconeP.innerText = "you created this paragraph"
+// //console.log(course)
 
+// // let x = name + " " + course
 
-// document.body.appendChild(seconeP)
+// // console.log(name + " " + course)
 
-// btn.textContent = 'Apply'
-// btn.style.color = "green"
-// btn.style.height = '10vh'
-// btn.style.width = '15vh'
+// // 2. Number
 
-// document.body.appendChild(btn)
+// let x = 12 // interger
 
-// ==========================================
-// CONCEPT 1: SELECTING ELEMENTS
-// ==========================================
-// We use document.getElementById to grab our HTML elements by their IDs.
-const title = document.getElementById("main-title");
-const button = document.getElementById("action-btn");
-const box = document.getElementById("content-box");
+// let y = 3// decimal (float)
 
 
-// ==========================================
-// CONCEPT 2: CHANGING TEXT & CONTENT
-// ==========================================
-// You can change an element's text immediately using .textContent
-title.textContent = "Welcome to the DOM Fundamentals Task!";
+
+// // arithmatic operators (+,-,*,/,%,**)
+
+// let z = 0
+
+// //z = x + y // addition
+
+// //z = y - x  // subtraction
+
+// //z = x * y // multiplication
+
+// //z = x / y // Division
+
+// //z = x % y //remainder (modulus)
+
+// z = x ** y // expponetiation (10 to the power 3)
+
+// console.log(z)
+
+// assigment operator
+
+// let x = 12 
+
+// x *= 3
+// //x = x + 3
 
 
-// ==========================================
-// CONCEPT 3: HANDLING EVENTS (CLICK)
-// ==========================================
-// We tell the button to "listen" for a click, then run a function when it happens.
-button.addEventListener("click", function() {
+// console.log(x)
+
+// comparison (equality, inequality, relational)
+
+// equality 
+
+// let a = 10 // integer
+
+// let b = '10' // string 
+
+// //console.log(a == b) // loose equality - it only check the value of variable
+// console.log(a === b) // strict equality - it checks both value and data type
+
+// inequality 
+
+// let w = 10
+// let q = 25
+
+//console.log(w != q) // loose inequality 
+//console.log(w !== q) // strick inequality
+
+// Relational (<,>,<=,>=)
+
+//console.log(w > q)
+ //console.log (w<q)
+ //console.log(w <= q)
+//console.log(w>=q)
+
+// Logical Operator
+// using AND (&&), OR (||), NOT (!)
+
+// let isParticipant = false
+// let isAccepted = true
+
+// //console.log(isParticipant && isAccepted) // must return true
+// //console.log(isParticipant || isAccepted) //must return true
+// console.log(!isParticipant) // must return false
+
+// Type operator
+
+// let name = 'Sabelo'
+// let age = 18
+// let isTeenage = true
+// let haveCar 
+// let ownHouse = null
+// let amount = 123n
+
+// console.log(typeof name) 
+// console.log(typeof age)
+// console.log(typeof isTeenage)
+// console.log(typeof haveCar) 
+// console.log(typeof ownHouse)
+// console.log(typeof amount) 
+
+// object data types
+// arrays and objects
+
+// let fruits = ['mango','apple', 'orange','banana']
+
+// //fruits.push('grapes')
+// //fruits.pop()
+
+// // objects - key : value pairs
+// let person = {
+//     name : 'sabelo',
+//     age : 12,
+//     gender : 'male',
+//     isStudent : true
+// }
+
+// console.log(person.age)
+
+// conditional statements 
+// if ... else if
+
+// let trafficLight = ''
+
+// if (trafficLight === 'green'){
+//     console.log('You are permited to move')
+// }
+// else if (trafficLight === 'yellow')
+// {
+//     console.log('caution, be alert!!!')
+// }
+// else if (trafficLight === 'red'){ 
+//     console.log('you are not safe to pass')
+// }
+// else
+// {
+//     console.log('It is broken')
+// }
+
+// switch statement
+
+// let day = 0
+
+// switch(day){
+//  case 1:
+//     console.log('monday')
+//     break
+//  case 2:
+//     console.log('tuesday')
+//     break
+//     case 3:
+//         console.log('wednesday')
+//         break
+//      case 4:
+//         console.log('thursday')
+//         break
+//         case 5:
+//     console.log('friday')
+//     break
+//  case 6:
+//     console.log('saturday')
+//     break
+//     case 7:
+//     console.log('sunday')
+//     break
+//     default:
+//     console.log('You entered an invalid day')
     
-    // ==========================================
-    // CONCEPT 4: CREATING & APPENDING ELEMENTS
-    // ==========================================
-    
-    // Step A: Create a brand new paragraph element in computer memory
-    const newParagraph = document.createElement("p");
-    
-    // Step B: Put text inside that new paragraph
-    newParagraph.textContent = "You clicked the button! A new element was born.";
-    
-    // Step C: Append (attach) it inside our empty 'content-box' div
-    box.appendChild(newParagraph);
-    
-});
+// }
+
+// Loops
+// For loop
+//  let number = 1
+
+//  for(let number=1; number < 5; number++) // increment
+//  {
+//    //console.log(`iteration: ${number}`)
+//   }
+
+//   for(let number=5; number >= 1; number--) // decrement
+//   {
+//     console.log(`iteration: ${number}`)
+//    }
+
+
+// while loop
+// let countDecrease = 10
+
+// while (countDecrease > 5){
+//     console.log(countDecrease)
+//     countDecrease--
+// }
+
+// Do while loop
+
+// let countDecrease = 10
+
+// let number = 0
+
+// do {
+//     console.log(number)
+//     number ++
+// }
+// while (number < 5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
