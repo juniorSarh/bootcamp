@@ -1,48 +1,44 @@
-// 1. Grab DOM elements
-const holes = document.querySelectorAll('.hole');
-const scoreDisplay = document.getElementById('score');
-const startButton = document.getElementById('start-btn');
+// declare a function 
 
-let score = 0;
-let activeHole = null;
-let gameInterval;
-
-// 2. Function to show a mole in a random hole
-function showMole() {
-    // If there's already a mole out, remove it first
-    if (activeHole) {
-        activeHole.classList.remove('mole');
-    }
-
-    // Pick a random hole (0 to 5)
-    const randomIndex = Math.floor(Math.random() * holes.length);
-    activeHole = holes[randomIndex];
-
-    // Add the CSS class to make it turn red
-    activeHole.classList.add('mole');
+function Add(x, y){
+    return x + y
 }
 
-// 3. Set up click listeners for the holes
-holes.forEach(hole => {
-    hole.addEventListener('click', () => {
-        // Check if the clicked hole currently has the mole class
-        if (hole.classList.contains('mole')) {
-            score++;
-            scoreDisplay.textContent = score; // Update the DOM score
-            hole.classList.remove('mole');   // Hide the mole immediately on whack
-        }
-    });
-});
+// call the function
+Add() // function being invocked
+//console.log(Add(5, 3)) 
 
-// 4. Start the game loop when the button is clicked
-startButton.addEventListener('click', () => {
-    score = 0;
-    scoreDisplay.textContent = score;
-    
-    // Clear any existing game loops just in case
-    clearInterval(gameInterval); 
-    
-    // Run showMole every 1000ms (1 second)
-    gameInterval = setInterval(showMole, 1000); 
-});
+
+// using list (array or object) wtrite function that will get the students marks
+// if a student passed or failed
+
+
+let students = [
+{name:'zama', mark:60},
+{name:'mbali', mark:50},
+{name:'sam', mark:75},
+{name:'sabelo', mark:20},
+]
+
+// declare 
+function studentsResults (studentslist){
+    for(let i =0; i < studentslist.length; i++){
+
+        const student = studentslist[i]
+
+        if(student.mark >= 75){
+            console.log(student.name + ' - passed with distinction')
+        }
+        else if (student.mark < 75 && student.mark >= 50)
+        {
+            console.log(student.name + ' - passed')
+        }
+        else{
+            console.log(student.name + ' - dismally fail')
+        }
+    }
+}
+
+// call 
+studentsResults(students)
 
