@@ -208,6 +208,97 @@
 
 
 
+// let Temperature = "dfn"
+
+// switch(true){
+
+//     case Temperature < 0 :
+//         console.log('It is freezing')
+//    break
+
+//     case Temperature >= 0 && Temperature <= 15 :
+//         console.log('It is cold' )
+//    break
+
+//     case Temperature >= 16 && Temperature <= 25 :
+//         console.log('It is normal - room temperature')
+//    break
+
+//    case Temperature > 25 :
+//    console.log('It is warm')
+
+//     default:
+//         console.log('Invalid input, it must be a number')
+    
+// }
+
+const Guessnumber = 5
+
+let userInput;
+
+do 
+{
+    //userInput = Number(readline.question('Please guess a number between 1 and 10'));
+    // const readline = require("readline")
+    // const rl = readline.createInterface({
+    //     input : process.stdin,
+    //     output : process.stdin
+    // })
+    // const correctNumber = 6
+
+    // function askGuess(){
+    //     rl.question("Guess a number between 1 to 10", function (answer){
+    //         const guess = Number(answer)
+    //         if(guess === correctNumber)
+    //         {
+    //             console.log('The number you guessed is correct')
+    //             rl.close()
+    //         }
+    //         else{
+    //             console.log('wrong number, try again')
+    //             askGuess()
+    //         }
+
+    //     })
+
+    // }
+
+    if(userInput === Guessnumber)
+    {
+        console.log('The number you guessed is correct')
+    }
+    else
+    {
+        console.log('wrong number, try again')
+    }
+}
+while(userInput !== Guessnumber)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
