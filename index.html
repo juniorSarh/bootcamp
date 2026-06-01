@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Session</title>
-    
+    <title>form-validation</title>
 </head>
 <body>
-    <h3> Bootcamp Task</h3>
-    <p> List your tasks</p>
-
-    <input type="text" id="task-input" placeholder="Enter task" />
-    <button id="addTaskbtn">Add task</button>
-    <button id="ClearTasksBtn">Clear All tasks</button>
-    <div> 
-        <h4>To Do</h4>
-        <div id="todoTasks">
-
+    <h3>JS Form Validatiion</h3>
+    <form id="signUpForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <span class="error-message" id="usernameError"></span>
         </div>
-    </div>
-    <p id="p"> </p>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email">
+            <span class="error-message" id="emailError"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <span class="error-message" id="passwordError"></span>
+        </div>
 
-    <script src="dom.js"></script>
+        <button type="submit"> Register</button>
+
+
+    </form>
+    <script src="validation.js"></script>
 </body>
 </html>
