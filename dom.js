@@ -1,94 +1,84 @@
-// get an element
+const form = document.getElementById("signupForm");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const terms = document.getElementById("terms");
 
-const addTaskBtn = document.getElementById('addTaskbtn');
-const taskInput = document.getElementById('task-input');
-const todoTasks = document.getElementById('todoTasks');
-const clearTasks = document.getElementById('ClearTasksBtn')
+const usernameError = document.getElementById("usernameError");
+const emailError = document.getElementById("emailError");
+const passwordError = document.getElementById("passwordError");
+const termsError = document.getElementById("termsError");
 
-// style the element
+const resendBtn = document.getElementById("resendBtn");
 
-addTaskBtn.style.backgroundColor = "green";
-addTaskBtn.style.color= "white";
-addTaskBtn.style.cursor = "pointer"
-
-
-
-let tasks = []
-
-function getAllTasks() {
-    todoTasks.innerHTML = ""
-
-    tasks.forEach((task) => {
-        const taskCard = document.createElement('div');
-
-        taskCard.classList.add('task')
-        taskCard.innerHTML = `
-        <p> ${task.title}</p>
-        `;
-        todoTasks.appendChild(taskCard)
-
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Delete';
-        deleteBtn.classList.add('delete-btn');
-        taskCard.appendChild(deleteBtn)
-
-    function deleteTask(taskId){
-        if(confirm('are you sure you want to delete a task')){
-            tasks = tasks.filter((task)=> task.id !== taskId);
-
-            getAllTasks()
-            console.log('Task deleted')
-        }
-        else{
-            console.log('task delete cancelled')
-        }
-    }
-    deleteBtn.addEventListener('click',()=> deleteTask(task.id))
-    
-
-    })
-    console.log('tasks avaliable', tasks)
-
-    
+function setError(input, errorEl, message) {
+  errorEl.textContent = message;
+  input.classList.add("invalid");
 }
 
-getAllTasks()
-
-
-// create a task
-
-function addTask()
-{
-    const title = taskInput.value.trim()
-
-    if(!title) return;
-
-    const newTask = {
-        id: Date.now(),
-        title: title
-    }
-    tasks.push(newTask)
-
-    taskInput.value= ""
-
-    getAllTasks();
-
-    console.log("task created", newTask)
+function clearError(input, errorEl) {
+  errorEl.textContent = "";
+  input.classList.remove("invalid");
 }
 
-addTaskBtn.addEventListener("click", addTask)
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-// delete all tasks
+  let valid = true;
 
-function clearAllTasks(){
-if(confirm('are you sure you want clear all tasks')){
-    tasks= [];
-    getAllTasks();
-    console.log('all the tasks cleared')
-}
-else{
-    console.log('clear tasks cancelled')
-}
-}
+  if (username.value.trim() === "") {
+    setError(username, usernameError, "Username is required.");
+    valid = false;
+  } else {
+    clearError(username, usernameError);
+  }
 
-clearTasks.addEventListener('click', clearAllTasks)
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email.value.trim() === "") {
+    setError(email, emailError, "Email is required.");
+    valid = false;
+  } else if (!emailPattern.test(email.value.trim())) {
+    setError(email, emailError, "Please enter a valid email address.");
+    valid = false;
+  } else {
+    clearError(email, emailError);
+  }
+
+  if (password.value.trim() === "") {
+    setError(password, passwordError, "Password is required.");
+    valid = false;
+  } else if (password.value.trim().length < 8) {
+    setError(
+      password,
+      passwordError,
+      "Password must be at least 8 characters.",
+    );
+    valid = false;
+  } else {
+    clearError(password, passwordError);
+  }
+
+  if (!terms.checked) {
+    termsError.textContent = "You must accept the terms.";
+    valid = false;
+  } else {
+    termsError.textContent = "";
+  }
+
+  if (valid) {
+    alert("Signup successful!");
+    form.reset();
+  }
+});
+
+let countdown = 10;
+const timer = setInterval(() => {
+  countdown--;
+  if (countdown > 0) {
+    resendBtn.textContent = `Resend Verification (${countdown}s)`;
+  } else {
+    clearInterval(timer);
+    resendBtn.disabled = false;
+    resendBtn.textContent = "Resend Verification";
+  }
+}, 1000);
